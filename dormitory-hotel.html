@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Waidhan Stay | Budget Dormitory &amp; Rooms | Singrauli</title>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;800&family=Noto+Sans+Devanagari:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --saffron:#FF6B00; --gold:#FFB800; --deep:#1A0A00;
+    --cream:#FFF8EE; --green:#2E7D32; --light-orange:#FFF3E0;
+  }
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Baloo 2',cursive;
+    background:var(--cream);color:var(--deep);
+    overflow-x:hidden;-webkit-tap-highlight-color:transparent;
+  }
+
+  /* JAI GURUDEV */
+  .top-bar{
+    background:linear-gradient(90deg,#7B0000,#CC0000,#7B0000);
+    color:#FFD700;text-align:center;
+    padding:11px 40px;
+    font-family:'Noto Sans Devanagari',sans-serif;
+    font-size:clamp(1rem,4.5vw,1.5rem);font-weight:900;letter-spacing:3px;
+    position:relative;
+  }
+  .top-bar::before,.top-bar::after{
+    content:'🙏';position:absolute;top:50%;transform:translateY(-50%);font-size:1.1rem;
+  }
+  .top-bar::before{left:10px;} .top-bar::after{right:10px;}
+  .shine{display:inline-block;animation:shine 2.5s ease-in-out infinite;}
+  @keyframes shine{
+    0%,100%{text-shadow:0 0 8px #FFD700,0 0 18px rgba(255,215,0,.5);}
+    50%     {text-shadow:0 0 18px #FFD700,0 0 45px rgba(255,215,0,.9),0 0 70px rgba(255,100,0,.5);}
+  }
+
+  /* HERO */
+  .hero{
+    background:linear-gradient(155deg,#FF6B00 0%,#FF8C00 55%,#FFB800 100%);
+    padding:2.5rem 1.2rem 4rem;text-align:center;
+    position:relative;overflow:hidden;
+  }
+  .blob{position:absolute;border-radius:50%;background:rgba(255,255,255,.07);animation:pulse 5s ease-in-out infinite;}
+  .blob.b1{width:280px;height:280px;top:-70px;right:-70px;}
+  .blob.b2{width:190px;height:190px;bottom:-55px;left:-40px;animation-delay:2.5s;}
+  @keyframes pulse{0%,100%{transform:scale(1);}50%{transform:scale(1.12);}}
+
+  .badge{
+    display:inline-block;background:var(--deep);color:var(--gold);
+    font-size:.7rem;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;
+    padding:5px 16px;border-radius:50px;margin-bottom:.9rem;
+    animation:fadeDown .7s ease both;
+  }
+  .hero h1{
+    font-size:clamp(1.9rem,7.5vw,4rem);font-weight:800;color:#fff;line-height:1.15;
+    animation:fadeDown .7s .15s ease both;text-shadow:0 3px 18px rgba(0,0,0,.22);
+  }
+  .hero h1 span{color:var(--deep);}
+  .hero-sub{
+    font-size:clamp(.92rem,3vw,1.1rem);color:rgba(255,255,255,.93);
+    margin:.8rem 0 1.8rem;line-height:1.65;animation:fadeDown .7s .3s ease both;
+  }
+  .hero-btns{display:flex;flex-direction:column;gap:.75rem;align-items:center;animation:fadeDown .7s .45s ease both;}
+  .btn{
+    padding:15px 28px;border-radius:50px;
+    font-family:'Baloo 2',cursive;font-size:.98rem;font-weight:700;
+    cursor:pointer;border:none;text-decoration:none;
+    transition:transform .2s,box-shadow .2s;
+    display:inline-flex;align-items:center;gap:8px;
+    width:100%;max-width:310px;justify-content:center;
+  }
+  .btn:active{transform:scale(.97);}
+  .btn-primary{background:var(--deep);color:var(--gold);}
+  .btn-secondary{background:rgba(255,255,255,.18);color:#fff;border:2px solid rgba(255,255,255,.5);}
+  @keyframes fadeDown{from{opacity:0;transform:translateY(-16px);}to{opacity:1;transform:translateY(0);}}
+
+  /* TICKER */
+  .ticker-wrap{background:var(--deep);overflow:hidden;padding:10px 0;}
+  .ticker-inner{display:flex;width:max-content;animation:ticker 22s linear infinite;}
+  .ticker-inner span{color:var(--gold);font-weight:700;font-size:.88rem;padding:0 1rem;white-space:nowrap;}
+  .ticker-inner .dot{color:var(--saffron);padding:0;}
+  @keyframes ticker{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+
+  /* SECTION */
+  section{padding:3.2rem 1.2rem;}
+  .section-title{text-align:center;font-size:clamp(1.4rem,5vw,2.3rem);font-weight:800;margin-bottom:.4rem;color:var(--deep);}
+  .section-title span{color:var(--saffron);}
+  .underline{width:48px;height:5px;background:linear-gradient(90deg,var(--saffron),var(--gold));border-radius:10px;margin:0 auto 2rem;}
+
+  /* PRICING */
+  .pricing{background:var(--light-orange);}
+  .cards-grid{
+    display:grid;grid-template-columns:1fr;gap:1.1rem;
+    max-width:440px;margin:0 auto;
+  }
+  @media(min-width:600px){.cards-grid{grid-template-columns:1fr 1fr;max-width:760px;}}
+  @media(min-width:950px){.cards-grid{grid-template-columns:repeat(4,1fr);max-width:1080px;}}
+
+  .card{
+    background:#fff;border-radius:20px;padding:1.5rem 1.1rem;
+    box-shadow:0 4px 22px rgba(255,107,0,.12);text-align:center;
+    position:relative;overflow:hidden;
+    opacity:0;transform:translateY(26px);transition:box-shadow .3s;
+  }
+  .card.visible{animation:slideUp .55s ease forwards;}
+  @keyframes slideUp{to{opacity:1;transform:translateY(0);}}
+  .card:hover{box-shadow:0 14px 36px rgba(255,107,0,.22);}
+  .card.featured{border:3px solid var(--saffron);}
+  .popular-tag{
+    position:absolute;top:13px;right:-30px;
+    background:var(--saffron);color:#fff;font-size:.62rem;font-weight:800;
+    padding:4px 38px;transform:rotate(45deg);letter-spacing:1px;
+  }
+  .card-icon{font-size:2.3rem;margin-bottom:.55rem;}
+  .card-type{font-size:.67rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--saffron);margin-bottom:.25rem;}
+  .card h3{font-size:1.1rem;font-weight:800;margin-bottom:.75rem;}
+  .price{font-size:2.5rem;font-weight:800;color:var(--saffron);line-height:1;}
+  .price sup{font-size:1.1rem;vertical-align:top;padding-top:.5rem;}
+  .price-label{font-size:.78rem;color:#888;margin-bottom:.9rem;}
+  .features{list-style:none;text-align:left;margin-bottom:1.2rem;}
+  .features li{padding:5px 0;font-size:.85rem;display:flex;align-items:center;gap:6px;border-bottom:1px dashed #f0e8de;}
+  .features li:last-child{border-bottom:none;}
+  .check{color:var(--green);font-size:.95rem;}
+  .card-btn{
+    display:block;padding:12px;border-radius:50px;
+    background:linear-gradient(135deg,var(--saffron),var(--gold));
+    color:#fff;font-weight:700;text-decoration:none;
+    font-family:'Baloo 2',cursive;font-size:.92rem;
+    border:none;cursor:pointer;width:100%;
+    transition:opacity .2s,transform .15s;
+  }
+  .card-btn:active{opacity:.85;transform:scale(.98);}
+
+  /* CUSTOM PRICE CARD */
+  .custom-card{border:2px dashed var(--gold);}
+  .person-selector{display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:.9rem;}
+  .ps-btn{
+    width:38px;height:38px;border-radius:50%;border:none;
+    background:var(--saffron);color:#fff;font-size:1.4rem;font-weight:700;
+    cursor:pointer;display:flex;align-items:center;justify-content:center;
+    transition:transform .15s;line-height:1;
+  }
+  .ps-btn:active{transform:scale(.9);}
+  .ps-count{font-size:1.9rem;font-weight:800;min-width:2rem;text-align:center;}
+  .ps-label{font-size:.8rem;color:#777;}
+  .custom-total{font-size:2.3rem;font-weight:800;color:var(--saffron);margin:.4rem 0 .2rem;}
+  .custom-note{font-size:.75rem;color:#888;margin-bottom:.7rem;}
+  .room-suggest{font-size:.82rem;color:#444;background:var(--light-orange);border-radius:10px;padding:7px 10px;margin-bottom:.9rem;line-height:1.5;}
+
+  /* AMENITIES */
+  .amenities-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.85rem;max-width:480px;margin:0 auto;}
+  @media(min-width:600px){.amenities-grid{grid-template-columns:repeat(4,1fr);max-width:680px;}}
+  .amenity{
+    background:#fff;border-radius:14px;padding:.95rem .5rem;
+    text-align:center;box-shadow:0 2px 10px rgba(0,0,0,.07);
+    opacity:0;transform:translateY(16px);
+  }
+  .amenity.visible{animation:slideUp .45s ease forwards;}
+  .amenity .icon{font-size:1.75rem;margin-bottom:.35rem;}
+  .amenity p{font-size:.75rem;font-weight:700;line-height:1.3;}
+
+  /* LOCATION */
+  .location-section{background:var(--light-orange);}
+  .location-box{
+    max-width:480px;margin:0 auto;background:#fff;
+    border-radius:20px;padding:1.8rem 1.2rem;
+    box-shadow:0 4px 22px rgba(255,107,0,.12);text-align:center;
+  }
+  .location-box .map-icon{font-size:2.4rem;margin-bottom:.7rem;}
+  .location-box h3{font-size:1.15rem;font-weight:800;margin-bottom:.4rem;}
+  .location-box p{color:#555;line-height:1.7;font-size:.9rem;margin-bottom:.4rem;}
+  .hindi{font-family:'Noto Sans Devanagari',sans-serif;font-size:.88rem;color:#666;}
+  .landmark{display:inline-flex;align-items:center;gap:5px;background:var(--light-orange);border-radius:50px;padding:5px 12px;margin:3px;font-size:.8rem;font-weight:600;}
+  .map-embed{width:100%;border-radius:14px;overflow:hidden;margin:1.1rem 0;border:2px solid #f0e8de;}
+  .map-embed iframe{width:100%;height:220px;border:none;display:block;}
+  .map-open-btn{
+    display:block;width:100%;padding:13px;border-radius:50px;
+    background:linear-gradient(135deg,var(--saffron),var(--gold));
+    color:#fff;font-weight:700;text-decoration:none;
+    font-family:'Baloo 2',cursive;font-size:.95rem;text-align:center;
+  }
+  .map-open-btn:active{opacity:.85;}
+
+  /* CTA */
+  .cta-section{
+    background:linear-gradient(135deg,var(--deep),#3D1800);
+    color:#fff;text-align:center;padding:3.5rem 1.2rem;position:relative;overflow:hidden;
+  }
+  .cta-section::before{
+    content:'';position:absolute;inset:0;
+    background:radial-gradient(circle at 65% 40%,rgba(255,184,0,.1),transparent 60%);
+    pointer-events:none;
+  }
+  .cta-section h2{font-size:clamp(1.4rem,5vw,2.3rem);font-weight:800;margin-bottom:.7rem;}
+  .cta-section h2 span{color:var(--gold);}
+  .cta-section p{color:rgba(255,255,255,.72);font-size:.93rem;margin-bottom:1.6rem;line-height:1.6;}
+  .phone-btns{display:flex;flex-direction:column;gap:.9rem;align-items:center;}
+  @media(min-width:480px){.phone-btns{flex-direction:row;justify-content:center;}}
+  .phone-btn{
+    display:inline-flex;align-items:center;gap:10px;
+    background:linear-gradient(135deg,var(--saffron),var(--gold));
+    color:#fff;padding:15px 26px;border-radius:50px;
+    text-decoration:none;font-weight:800;font-size:1.02rem;
+    width:100%;max-width:270px;justify-content:center;
+    animation:ring 2.5s ease infinite;
+    box-shadow:0 6px 20px rgba(255,107,0,.4);
+  }
+  .phone-btn:nth-child(2){animation-delay:.6s;}
+  .phone-btn:active{transform:scale(.97);}
+  @keyframes ring{
+    0%,84%,100%{transform:rotate(0);}
+    87%{transform:rotate(-9deg);}
+    91%{transform:rotate(9deg);}
+    95%{transform:rotate(-4deg);}
+  }
+
+  /* FOOTER */
+  footer{background:var(--deep);color:rgba(255,255,255,.48);text-align:center;padding:1.4rem 1rem;font-size:.8rem;line-height:1.9;}
+  footer strong{color:var(--gold);}
+
+  /* FLOATING BUTTONS */
+  .float-call{
+    position:fixed;bottom:20px;right:14px;z-index:999;
+    background:linear-gradient(135deg,var(--saffron),var(--gold));
+    color:#fff;border-radius:50px;padding:13px 18px;
+    font-weight:800;font-size:.88rem;text-decoration:none;
+    box-shadow:0 5px 18px rgba(255,107,0,.5);
+    display:flex;align-items:center;gap:7px;
+    animation:ring 2.5s ease infinite;
+  }
+  .float-wa{
+    position:fixed;bottom:20px;left:14px;z-index:999;
+    background:#25D366;color:#fff;border-radius:50px;
+    padding:13px 16px;font-weight:800;font-size:.88rem;
+    text-decoration:none;box-shadow:0 5px 18px rgba(37,211,102,.4);
+    display:flex;align-items:center;gap:7px;
+    animation:pulse 2s ease-in-out infinite;
+  }
+</style>
+</head>
+<body>
+
+<!-- FLOATING BUTTONS -->
+<a class="float-call" href="tel:9770236735">📞 Call Now</a>
+<a class="float-wa" href="https://wa.me/919770236735" target="_blank">💬 WhatsApp</a>
+
+<!-- JAI GURUDEV -->
+<div class="top-bar"><span class="shine">🙏 जय गुरुदेव 🙏</span></div>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="blob b1"></div><div class="blob b2"></div>
+  <div class="badge">✦ वैढ़न, सिंगरौली · 24 घंटे खुला ✦</div>
+  <h1>सस्ता &amp; आरामदायक<br><span>Stay in Waidhan</span></h1>
+  <p class="hero-sub">
+    Dormitory Beds · Waiting Room · Sleeper Beds<br>
+    सिर्फ <strong>₹250/-</strong> से शुरू! Budget में Best Stay.
+  </p>
+  <div class="hero-btns">
+    <a href="#pricing" class="btn btn-primary">🛏️ Rooms &amp; Price देखें</a>
+    <a href="tel:9770236735" class="btn btn-secondary">📞 अभी Call करें</a>
+  </div>
+</header>
+
+<!-- TICKER -->
+<div class="ticker-wrap" aria-hidden="true">
+  <div class="ticker-inner">
+    <span>🛏️ Beds Available Now</span><span class="dot">◆</span>
+    <span>✅ 24 घंटे खुला</span><span class="dot">◆</span>
+    <span>💰 ₹250/- से शुरू</span><span class="dot">◆</span>
+    <span>📍 Ambedkar Chowk Waidhan</span><span class="dot">◆</span>
+    <span>🏥 MPC Hospital के सामने</span><span class="dot">◆</span>
+    <span>📞 9770236735</span><span class="dot">◆</span>
+    <span>🛏️ Beds Available Now</span><span class="dot">◆</span>
+    <span>✅ 24 घंटे खुला</span><span class="dot">◆</span>
+    <span>💰 ₹250/- से शुरू</span><span class="dot">◆</span>
+    <span>📍 Ambedkar Chowk Waidhan</span><span class="dot">◆</span>
+    <span>🏥 MPC Hospital के सामने</span><span class="dot">◆</span>
+    <span>📞 9770236735</span><span class="dot">◆</span>
+  </div>
+</div>
+
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+  <h2 class="section-title">हमारे <span>Room Options</span></h2>
+  <div class="underline"></div>
+  <div class="cards-grid">
+
+    <!-- CARD 1 -->
+    <div class="card" data-delay="0">
+      <div class="card-icon">🛌</div>
+      <div class="card-type">Budget Pick</div>
+      <h3>Non-AC Sleeper Bed</h3>
+      <div class="price"><sup>₹</sup>250</div>
+      <div class="price-label">प्रति रात / प्रति bed</div>
+      <ul class="features">
+        <li><span class="check">✔</span> आरामदायक Mattress</li>
+        <li><span class="check">✔</span> Shared Dormitory</li>
+        <li><span class="check">✔</span> 24 घंटे Access</li>
+        <li><span class="check">✔</span> Safe &amp; Clean</li>
+      </ul>
+      <a href="tel:9770236735" class="card-btn">📞 अभी Book करें</a>
+    </div>
+
+    <!-- CARD 2 FEATURED -->
+    <div class="card featured" data-delay="120">
+      <div class="popular-tag">POPULAR</div>
+      <div class="card-icon">🪑</div>
+      <div class="card-type">Best Value</div>
+      <h3>Waiting Room</h3>
+      <div class="price"><sup>₹</sup>300</div>
+      <div class="price-label">प्रति रात / प्रति seat</div>
+      <ul class="features">
+        <li><span class="check">✔</span> Spacious Area</li>
+        <li><span class="check">✔</span> अच्छी Ventilation</li>
+        <li><span class="check">✔</span> 24 घंटे Open</li>
+        <li><span class="check">✔</span> Short Stay Ideal</li>
+      </ul>
+      <a href="tel:9770236735" class="card-btn">📞 अभी Book करें</a>
+    </div>
+
+    <!-- CARD 3 -->
+    <div class="card" data-delay="240">
+      <div class="card-icon">🛏️</div>
+      <div class="card-type">Comfort Plus</div>
+      <h3>Sleeper Bed</h3>
+      <div class="price"><sup>₹</sup>400</div>
+      <div class="price-label">प्रति रात / प्रति bed</div>
+      <ul class="features">
+        <li><span class="check">✔</span> Comfortable Bed</li>
+        <li><span class="check">✔</span> Better Privacy</li>
+        <li><span class="check">✔</span> 24 घंटे Access</li>
+        <li><span class="check">✔</span> Clean Linen</li>
+      </ul>
+      <a href="tel:9770236735" class="card-btn">📞 अभी Book करें</a>
+    </div>
+
+    <!-- CARD 4 CUSTOM / GROUP -->
+    <div class="card custom-card" data-delay="360">
+      <div class="card-icon">👨‍👩‍👧‍👦</div>
+      <div class="card-type">Group / Custom</div>
+      <h3>अपना Price खुद जानें</h3>
+      <div class="person-selector">
+        <button class="ps-btn" onclick="changePerson(-1)" aria-label="कम करें">−</button>
+        <span class="ps-count" id="personCount">1</span>
+        <span class="ps-label">व्यक्ति</span>
+        <button class="ps-btn" onclick="changePerson(1)" aria-label="बढ़ाएं">+</button>
+      </div>
+      <div class="custom-total" id="customPrice">₹250</div>
+      <div class="custom-note">कुल अनुमानित किराया</div>
+      <div class="room-suggest" id="roomSuggest">🛌 1 Non-AC Bed — सबसे सस्ता!</div>
+      <ul class="features">
+        <li><span class="check">✔</span> Group Discount Available</li>
+        <li><span class="check">✔</span> Flexible Options</li>
+        <li><span class="check">✔</span> Call for Best Deal</li>
+      </ul>
+      <a href="tel:9770236735" class="card-btn" id="groupCallBtn">📞 Group Booking करें</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- AMENITIES -->
+<section>
+  <h2 class="section-title">हम क्या <span>देते हैं</span></h2>
+  <div class="underline"></div>
+  <div class="amenities-grid">
+    <div class="amenity"><div class="icon">🕐</div><p>24 घंटे Open</p></div>
+    <div class="amenity"><div class="icon">🧹</div><p>साफ Rooms</p></div>
+    <div class="amenity"><div class="icon">💡</div><p>Electricity</p></div>
+    <div class="amenity"><div class="icon">🚿</div><p>Washroom</p></div>
+    <div class="amenity"><div class="icon">🔒</div><p>Safe &amp; Secure</p></div>
+    <div class="amenity"><div class="icon">💰</div><p>सबसे सस्ता</p></div>
+    <div class="amenity"><div class="icon">📍</div><p>Best Location</p></div>
+    <div class="amenity"><div class="icon">🏥</div><p>MPC पास</p></div>
+    <div class="amenity"><div class="icon">⚡</div><p>NTPC पास</p></div>
+  </div>
+</section>
+
+<!-- LOCATION -->
+<section class="location-section" id="location">
+  <h2 class="section-title">हमारा <span>Location</span></h2>
+  <div class="underline"></div>
+  <div class="location-box">
+    <div class="map-icon">📍</div>
+    <h3>Ambedkar Chowk, Waidhan</h3>
+    <p>NTPC, Singrauli – 486886 (M.P.)</p>
+    <p class="hindi">रामलीला मैदान के पीछे, बलियारी रोड, वैढ़न, सिंगरौली</p>
+    <br>
+    <div>
+      <span class="landmark">🏥 MPC Hospital के सामने</span>
+      <span class="landmark">🏟️ रामलीला मैदान के पीछे</span>
+      <span class="landmark">⚡ NTPC Singrauli पास</span>
+    </div>
+    <div class="map-embed">
+      <iframe
+        src="https://maps.google.com/maps?q=Waidhan+Singrauli+Madhya+Pradesh&output=embed&z=15"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Waidhan Stay Location">
+      </iframe>
+    </div>
+    <a class="map-open-btn" href="https://maps.app.goo.gl/kdCnSkUQEZt3xfpVA" target="_blank" rel="noopener">
+      🗺️ Google Maps पर देखें
+    </a>
+  </div>
+</section>
+
+<!-- CALL CTA -->
+<section class="cta-section" id="contact">
+  <h2>Room चाहिए? <span>अभी Call करें!</span></h2>
+  <p>हम 24 घंटे उपलब्ध हैं।<br>सिर्फ Call करें, आपका बिस्तर तैयार होगा!</p>
+  <div class="phone-btns">
+    <a href="tel:9770236735" class="phone-btn">📞 97702 36735</a>
+    <a href="tel:7879028316" class="phone-btn">📞 78790 28316</a>
+  </div>
+  <p style="color:rgba(255,255,255,.42);margin-top:1.4rem;font-size:.82rem;font-family:'Noto Sans Devanagari',sans-serif;">
+    मकान किराए पर देना है? संपर्क करें।
+  </p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 <strong>Waidhan Stay</strong> · Ambedkar Chowk, Waidhan, Singrauli (M.P.)</p>
+  <p>Cheapest Dormitory &amp; Waiting Room in Singrauli 🏨</p>
+  <p style="font-family:'Noto Sans Devanagari',sans-serif;margin-top:4px;">🙏 जय गुरुदेव 🙏</p>
+</footer>
+
+<script>
+// ── Scroll animations ────────────────────────────────
+const ioCards = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if(e.isIntersecting){
+      const d = Number(e.target.dataset.delay || 0);
+      setTimeout(() => e.target.classList.add('visible'), d);
+      ioCards.unobserve(e.target);
+    }
+  });
+},{threshold:.08});
+document.querySelectorAll('.card').forEach(c => ioCards.observe(c));
+
+const ioAm = new IntersectionObserver(entries => {
+  entries.forEach((e,i) => {
+    if(e.isIntersecting){
+      setTimeout(() => e.target.classList.add('visible'), i * 65);
+      ioAm.unobserve(e.target);
+    }
+  });
+},{threshold:.05});
+document.querySelectorAll('.amenity').forEach(a => ioAm.observe(a));
+
+// ── Custom Price Calculator ──────────────────────────
+let persons = 1;
+
+const tiers = [
+  {max:1, rate:250, label:'Non-AC Bed', emoji:'🛌'},
+  {max:2, rate:250, label:'Non-AC Beds', emoji:'🛌'},
+  {max:4, rate:300, label:'Waiting Room', emoji:'🪑'},
+  {max:6, rate:300, label:'Waiting Rooms', emoji:'🪑'},
+  {max:99,rate:400, label:'Sleeper Beds', emoji:'🛏️'},
+];
+
+function getTier(n){ return tiers.find(t => n <= t.max); }
+
+function updateCard(){
+  const t = getTier(persons);
+  const total = persons * t.rate;
+  document.getElementById('personCount').textContent = persons;
+  document.getElementById('customPrice').textContent = '₹' + total.toLocaleString('en-IN');
+  document.getElementById('roomSuggest').textContent =
+    t.emoji + ' ' + persons + ' ' + t.label + ' — ₹' + t.rate + '/- प्रति व्यक्ति';
+  document.getElementById('groupCallBtn').href = 'tel:9770236735';
+}
+
+function changePerson(delta){
+  persons = Math.max(1, Math.min(20, persons + delta));
+  updateCard();
+}
+updateCard();
+
+// ── Ensure ALL phone numbers are direct call links ───
+// Any element displaying a number gets a call wrapper
+document.querySelectorAll('*').forEach(el => {
+  if(el.childElementCount === 0){
+    const txt = el.textContent.trim();
+    // match 10-digit numbers
+    if(/^[6-9]\d{9}$/.test(txt.replace(/\s/g,''))){
+      const num = txt.replace(/\s/g,'');
+      if(el.tagName !== 'A'){
+        el.style.cursor = 'pointer';
+        el.style.color = 'var(--saffron)';
+        el.style.fontWeight = '800';
+        el.addEventListener('click', () => window.location.href = 'tel:' + num);
+      }
+    }
+  }
+});
+</script>
+</body>
+</html>
